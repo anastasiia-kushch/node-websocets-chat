@@ -1,0 +1,15 @@
+{
+  "name": "websocets-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "global": "^4.4.0",
+    "serve": "^14.2.3"
+  }
+}
