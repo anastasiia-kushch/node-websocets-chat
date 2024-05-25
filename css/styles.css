@@ -1,0 +1,59 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #87a7e4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+input {
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 60px;
+}
+
+button:hover,
+button:focus,
+input:hover,
+input:focus {
+  border-color: #daaf43;
+}
+
+#messages {
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 3px;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+img {
+  display: block;
+  width: 100%;
+}
+
