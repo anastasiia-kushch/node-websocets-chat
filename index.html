@@ -27,6 +27,8 @@
     <div id="messages"></div>
 
     <script>
+        const socket = new WebSocket("ws://localhost:5500")
+        
         const formElement = document.getElementById('form');
         const messagesElement = document.getElementById('messages')
 
