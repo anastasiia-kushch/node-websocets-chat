@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.19.2",
     "global": "^4.4.0",
+    "http-server": "^14.1.1",
     "serve": "^14.2.3",
     "socket.io": "^4.7.5",
     "ws": "^8.17.0"
