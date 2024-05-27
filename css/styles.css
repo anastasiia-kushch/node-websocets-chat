@@ -78,6 +78,7 @@ input:focus {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .chat-messages {
@@ -91,6 +92,9 @@ input:focus {
 .chat-input {
   padding: 10px;
   background-color: #fff;
+  position: absolute; /* Зафиксировано внизу чата */
+  bottom: 0;
+  width: 95%;
 }
 
 .chat-input form {
