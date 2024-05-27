@@ -1,32 +1,26 @@
-import { WebSocketServer } from 'ws';
+import http from 'node:http';
+import { Server } from 'socket.io';
 
-const server = new WebSocketServer({ port: 8555 });
-
-const clients = [];
-
-server.on('connection', (socket) => {
-  console.log('Client connected');
-  clients.push(socket);
-
-  for (const client of clients) {
-    if (client === socket) {
-      client.send('Welcome to chat!');
-    } else {
-      client.send('New user connected');
-    }
-  }
-
-  socket.onmessage = (event) => {
-    const data = JSON.parse(event.data);
-
-    for (const client of clients) {
-      if (client === socket) {
-        client.send(`You: ${data.message}`);
-      } else {
-        client.send(`${data.name}: ${data.message}`);
-      }
-    }
-  };
+const server = http.createServer();
+const io = new Server(server, {
+  cors: {
+    origin: '*',
+  },
 });
 
-console.log('Server started on port 8555');
+io.on('connection', (socket) => {
+  console.log('Client connected');
+
+  socket.emit('chatMessage', 'Welcome to Chat!');
+  socket.broadcast.emit('chatMessage', 'New user connected');
+  socket.on('chatMessage', (message) => {
+    const data = JSON.parse(message);
+
+    socket.emit('chatMessage', `You: ${data.message}`);
+    socket.broadcast.emit('chatMessage', `${data.name}: ${data.message}`);
+  });
+});
+
+server.listen(8555, () => {
+  console.log('Server started on port 8555');
+});
