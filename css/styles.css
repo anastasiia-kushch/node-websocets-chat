@@ -73,7 +73,7 @@ input:focus {
 
 .chat-container {
   width: 400px;
-  height: 500px;
+  height: 200px;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
@@ -83,24 +83,24 @@ input:focus {
 }
 
 .chat-messages {
-  flex: 1;
+
   padding: 10px;
-  overflow-y: auto; 
+  overflow: scroll;
 }
 
-.chat-messages-wrapper {
+/* .chat-messages-wrapper {
   flex: 1;
-  overflow-y: auto; 
+  overflow-y: scroll;
   padding: 10px;
   display: flex;
-}
+} */
 
 .chat-input {
   padding: 10px;
   background-color: #fff;
   width: 100%;
   position: absolute;
-  bottom: 0; /* Убрали position: absolute; */
+  bottom: 0; 
 }
 
 .chat-input form {
