@@ -1,13 +1,15 @@
 import http from 'node:http';
+import express from 'express';
 import { Server } from 'socket.io';
+import path from 'node:path';
 
-const server = http.createServer();
-const io = new Server(server, {
-  cors: {
-    origin: '*',
-  },
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
+
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve('index.html'));
 });
-
 io.on('connection', (socket) => {
   console.log('Client connected');
 
