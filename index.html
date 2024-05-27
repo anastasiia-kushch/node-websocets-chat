@@ -16,18 +16,21 @@
     <div id="nameModal" class="modal">
         <div class="modal-content">
             <h2 class="modal-h2">Enter your nickname</h2>
-            <input type="text" id="username" placeholder="Your nickname" class="modal-input">
+            <input type="text" id="username" class="modal-input" placeholder="Your nickname">
             <button id="saveName">Save</button>
         </div>
     </div>
 
     <div id="chatApp" style="display:none;" class="chat-container">
 
-        <div id="messages" class="chat-messages"></div>
+        <div id="messages" class="chat-messages">
+            <div class="chat-messages-wrapper" id="messages-wrapper">
+            </div>
+        </div>
 
         <div class="chat-input">
             <form id="form">
-                    <input type="text" name="message" placeholder="Message" class="input-message" autocomplete="off" />
+                <input type="text" name="message" placeholder="Message" autocomplete="off" />
                 <button type="submit">Send</button>
             </form>
         </div>
