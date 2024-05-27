@@ -1,20 +1,32 @@
-import express from 'express';
-import { createServer } from 'http';
 import { WebSocketServer } from 'ws';
 
-const app = express();
-const server = createServer(app);
-const wss = new WebSocketServer({ server });
+const server = new WebSocketServer({ port: 8555 });
 
-wss.on('connection', (ws) => {
-  ws.on('message', (message) => {
-    console.log('received: %s', message);
-  });
+const clients = [];
 
-  ws.send('something');
+server.on('connection', (socket) => {
+  console.log('Client connected');
+  clients.push(socket);
+
+  for (const client of clients) {
+    if (client === socket) {
+      client.send('Welcome to chat!');
+    } else {
+      client.send('New user connected');
+    }
+  }
+
+  socket.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+
+    for (const client of clients) {
+      if (client === socket) {
+        client.send(`You: ${data.message}`);
+      } else {
+        client.send(`${data.name}: ${data.message}`);
+      }
+    }
+  };
 });
 
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+console.log('Server started on port 8555');
