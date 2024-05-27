@@ -21,21 +21,25 @@
         </div>
     </div>
 
-    <form id="form">
-        <div>
-            <input type="text" name="name" placeholder="Nickname" />
-        </div>
-        <div>
-            <input type="text" name="message" placeholder="Message" />
-        </div>
-        <button type="submit">Send</button>
-    </form>
+    <div id="chatApp" style="display:none;">
 
-    <div id="messages"></div>
+        <form id="form">
+            <!-- <div>
+                <input type="text" name="name" placeholder="Nickname" />
+            </div> -->
+            <div>
+                <input type="text" name="message" placeholder="Message" />
+            </div>
+            <button type="submit">Send</button>
+        </form>
+
+        <div id="messages"></div>
+
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
 
-    <script src="/js/script.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>
