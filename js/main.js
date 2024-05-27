@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const formElement = document.getElementById('form');
   const messagesElement = document.getElementById('messages');
 
-  modal.style.display = 'block';
+  modal.style.display = 'flex';
 
   saveNameButton.addEventListener('click', (event) => {
     event.preventDefault();

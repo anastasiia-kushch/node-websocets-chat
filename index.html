@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="./icon/chat.svg">
+    <link rel="icon" type="image/svg+xml" href="icon/chat.svg">
     <title>Chat</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,26 +15,22 @@
 <body>
     <div id="nameModal" class="modal">
         <div class="modal-content">
-            <h2>Enter your nickname</h2>
-            <input type="text" id="username" placeholder="Your nickname">
+            <h2 class="modal-h2">Enter your nickname</h2>
+            <input type="text" id="username" placeholder="Your nickname" class="modal-input">
             <button id="saveName">Save</button>
         </div>
     </div>
 
-    <div id="chatApp" style="display:none;">
+    <div id="chatApp" style="display:none;" class="chat-container">
 
-        <form id="form">
-            <!-- <div>
-                <input type="text" name="name" placeholder="Nickname" />
-            </div> -->
-            <div>
-                <input type="text" name="message" placeholder="Message" />
-            </div>
-            <button type="submit">Send</button>
-        </form>
+        <div id="messages" class="chat-messages"></div>
 
-        <div id="messages"></div>
-
+        <div class="chat-input">
+            <form id="form">
+                    <input type="text" name="message" placeholder="Message" class="input-message" autocomplete="off" />
+                <button type="submit">Send</button>
+            </form>
+        </div>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
